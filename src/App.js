@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import "./App.css";
+import Nav from "./Componentes/Nav/Nav";
+import Footer from "./Componentes/Footer/Footer.js";
+import Main from "./Componentes/Main/Main.js"
+import Iphone from "./Componentes/Pages/Iphone/Iphone";
+import  Mac from './Componentes/Pages/Mac/Mac';
+import  Four04 from "./Componentes/Pages/Four04/Four04";
+import ProductPage from "./Componentes/Pages/ProductPage/ProductPage";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Nav />  
+      <Switch>
+        <Route path="/" exact component={Main} />
+        <Route path="/iphones" exact component={Iphone} />
+        <Route path="/iphones/:pid" exact component={ProductPage} />
+        <Route path="/mac" exact component={Mac} />
+        <Route path="/" component={Four04} />
+      </Switch>
+      <Footer />
+    </Router>
+   
   );
 }
 
